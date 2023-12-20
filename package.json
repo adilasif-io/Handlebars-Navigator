@@ -1,12 +1,15 @@
 {
   "name": "handlebars-navigator",
-  "version": "1.0.0",
+  "displayName": "Handlebars Navigator",
+  "version": "1.0.1",
   "description": "Handlebars Navigator for VS Code",
+  "icon": "images/handlebars-navigator-logo.png",
   "main": "out/extension.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/adilasif-io/Handlebars-Navigator"
   },
+  "publisher": "adilasif-io",
   "license": "MIT",
   "scripts": {
     "vscode:prepublish": "tsc -p ."
