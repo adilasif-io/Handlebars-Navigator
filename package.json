@@ -1,0 +1,39 @@
+{
+  "name": "handlebars-navigator",
+  "version": "1.0.0",
+  "description": "Handlebars Navigator for VS Code",
+  "main": "out/extension.js",
+  "scripts": {
+    "vscode:prepublish": "tsc -p ."
+  },
+  "keywords": [
+    "vscode",
+    "handlebars"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "typescript": "^5.3.3",
+    "vscode": "^1.1.37"
+  },
+  "activationEvents": [
+    "onLanguage:html"
+  ],
+  "engines": {
+    "vscode": "^1.62.0"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.openLinkedPartial",
+        "title": "Open Linked Partial"
+      }
+    ],
+    "languages": [
+      {
+          "id": "html",
+          "extensions": [".html"],
+          "configuration": "./language-configuration.json"
+      }
+    ]
+  }
+}
