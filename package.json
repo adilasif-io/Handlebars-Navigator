@@ -1,7 +1,7 @@
 {
   "name": "handlebars-navigator",
   "displayName": "Handlebars Navigator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Handlebars Navigator for VS Code",
   "icon": "images/handlebars-navigator-logo.png",
   "main": "out/extension.js",
