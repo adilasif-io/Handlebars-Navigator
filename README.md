@@ -1,3 +1,4 @@
+
 # Handlebars Navigator
 
 🚀 Visual Studio Code extension for easy Handlebars navigation.
@@ -19,9 +20,11 @@
 
 ## Usage
 
-1. Open a Handlebars file in Visual Studio Code
-2. Use Ctrl+Click on a partial to navigate to its definition
-3. Explore and navigate through your Handlebars project with ease
+1. Open an HTML file with handlebars in Visual Studio Code
+2. Use Ctrl+Click on a partial. Ex: {{>_partial-name}}
+4. _partial-name.html will be opened
+
+   **Please note, Partials should exist as an html file in the "src>partials" folder. Can be any subfolders after that.**
 
 ## Building Locally
 
