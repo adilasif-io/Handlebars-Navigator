@@ -5,11 +5,11 @@
 
 ## Features
 
-- **Navigate with Ease:** Quickly jump to the definition of Handlebars partials, making it effortless to explore and understand your project structure.
+- **Navigate with Ease:** Quickly jump to the definition of Handlebars partials, by simply CTRL + Click on the Partial. Ex: *{{>_partial-name}}*.
 
-- **Intelligent Symbol Recognition:** Enjoy efficient navigation with intelligent recognition of Handlebars symbols, allowing for seamless exploration of your Handlebars templates.
+- **Handlebars Highlighting:** Tailored support for Handlebars syntax, highlighting the handlebar mustaches and the partial names.
 
-- **Enhanced Handlebars Support:** Tailored support for Handlebars syntax, providing an intuitive and streamlined coding experience.
+![How to use.](https://raw.githubusercontent.com/adilasif-io/Handlebars-Navigator/main/images/HN-working.gif)
 
 ## Installation
 
