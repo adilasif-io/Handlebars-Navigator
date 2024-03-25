@@ -38,10 +38,17 @@
     ],
     "languages": [
       {
-          "id": "html",
-          "extensions": [".html"],
-          "configuration": "./language-configuration.json"
+        "id": "html",
+        "extensions": [
+          ".html"
+        ],
+        "configuration": "./language-configuration.json"
       }
-    ]
+    ],
+    "keybindings": {
+      "key": "ctrl+shift+/",
+      "command": "extension.handlebarsWrapComment",
+      "when": "editorTextFocus"
+    }
   }
 }

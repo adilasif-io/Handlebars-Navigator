@@ -44,7 +44,68 @@ export function activate(context: vscode.ExtensionContext) {
 
     const provider = new PartialSymbolProvider();
     context.subscriptions.push(vscode.languages.registerDefinitionProvider('html', provider));
+    context.subscriptions.push(vscode.commands.registerCommand('extension.handlebarsWrapComment', handlebarsWrapComment));
 }
+
+
+// Function to wrap or unwrap text in Handlebars comment
+function handlebarsWrapComment() {
+    const editor = vscode.window.activeTextEditor;
+    if (!editor) {
+        return;
+    }
+
+    const document = editor.document;
+    const selection = editor.selection;
+
+    // Get the text of the selected range or current line
+    let text: string;
+    let range: vscode.Range;
+    if (!selection.isEmpty) {
+        text = document.getText(selection);
+        range = selection;
+    } else {
+        const line = document.lineAt(selection.active.line);
+        text = line.text.trim();
+        range = line.range;
+    }
+
+    // Check if the text is wrapped in Handlebars comments
+    const isWrapped = isTextWrapped(text);
+
+    // If text is wrapped, unwrap it; otherwise, wrap it
+    const newText = isWrapped ? unwrapHandlebarsComment(text) : wrapInHandlebarsComment(text);
+
+    // Replace the selected range or current line with the new text
+    editor.edit(editBuilder => {
+        editBuilder.replace(range, newText);
+    });
+}
+
+
+// Function to check if text is wrapped in Handlebars comments
+function isTextWrapped(text: string): boolean {
+    return text.startsWith('{{!--') && text.endsWith('--}}');
+}
+
+// Function to unwrap Handlebars comment
+function unwrapHandlebarsComment(text: string): string {
+    return text.substring('{{!--'.length, text.length - '--}}'.length).trim();
+}
+
+// Function to wrap text in Handlebars comment
+function wrapInHandlebarsComment(text: string) {
+    return `{{!-- ${text} --}}`;
+}
+
+// Define decoration type for collapsible comments
+const collapsibleCommentDecoration = vscode.window.createTextEditorDecorationType({
+    isWholeLine: true,
+    before: {
+        contentText: '⌄',
+        color: 'lightgray'
+    }
+});
 
 function highlightPartials(
     editor: vscode.TextEditor,
