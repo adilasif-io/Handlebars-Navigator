@@ -1,11 +1,10 @@
-
 # Handlebars Navigator
 
 🚀 Visual Studio Code extension for easy Handlebars navigation.
 
 ## Features
 
-- **Navigate with Ease:** Quickly jump to the definition of Handlebars partials, by simply CTRL + Click on the Partial. Ex: *{{>_partial-name}}*.
+- **Navigate with Ease:** Quickly jump to the definition of Handlebars partials, by simply CTRL + Click on the Partial. Ex: _{{>_partial-name}}_.
 
 - **Handlebars Highlighting:** Tailored support for Handlebars syntax, highlighting the handlebar mustaches and the partial names.
 
@@ -20,27 +19,63 @@
 
 ## Usage
 
+### Navigate to Partial Definition
+
 1. Open an HTML file with handlebars in Visual Studio Code
 2. Use Ctrl+Click on a partial. Ex: {{>_partial-name}}
-4. _partial-name.html will be opened
+3. \_partial-name.html will be opened
 
    **Please note, Partials should exist as an html file in the "src>partials" folder. Can be any subfolders after that.**
+
+### Comment out HTML using Handlebars Comment
+
+1. Select the lines that you would like commented
+2. Press CTRL + SHIFT + /
+
+## Running Locally to Debug and Test
+
+To test the extension locally in a development environment, follow these steps:
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/adilasif-io/handlebars-navigator.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd handlebars-navigator
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Open file `src > extension.ts`
+
+5. Run Debug mode by pressing `F5` on your keyboard and select `VS Code Extension Development`
 
 ## Building Locally
 
 To build the extension locally, follow these steps:
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/adilasif-io/handlebars-navigator.git
    ```
 
 2. Navigate to the project directory:
+
    ```bash
    cd handlebars-navigator
    ```
 
 3. Install dependencies:
+
    ```bash
    npm install
    ```
@@ -50,10 +85,42 @@ To build the extension locally, follow these steps:
    npx tsc
    ```
 
+## Building VSIX
+
+To build the VSIX package, follow these steps:
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/adilasif-io/handlebars-navigator.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd handlebars-navigator
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Install Visual Studio Code CLI:
+
+   ```bash
+   npm install -g @vscode/vsce
+   ```
+
+5. Run the packaging process:
+   ```bash
+   vsce package
+   ```
+
 ## Contributing
 
 Contributions are welcome! Whether you find a bug, have a feature request, or want to contribute code, please feel free to [open an issue](https://github.com/adilasif-io/handlebars-navigator/issues) or submit a pull request.
-
 
 ## License
 
