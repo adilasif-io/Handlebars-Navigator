@@ -196,25 +196,6 @@ function highlightPartials(
     editor.setDecorations(braceDecorationType, braces);
 }
 
-
-// class PartialSymbolProvider implements vscode.DefinitionProvider {
-//     provideDefinition(
-//         document: vscode.TextDocument,
-//         position: vscode.Position,
-//         token: vscode.CancellationToken
-//     ): vscode.ProviderResult<vscode.Definition> {
-//         const wordRange = document.getWordRangeAtPosition(position);
-//         const partialName = document.getText(wordRange);
-
-//         // Assuming your partials are in the "src/partials" directory
-//         const partialsPath = vscode.Uri.file(
-//             vscode.workspace.rootPath ? path.join(vscode.workspace.rootPath, 'src', 'partials', `${partialName}.html`) : ''
-//         );
-
-//         return new vscode.Location(partialsPath, new vscode.Position(0, 0));
-//     }
-// }
-
 class PartialSymbolProvider implements vscode.DefinitionProvider {
     provideDefinition(
         document: vscode.TextDocument,
