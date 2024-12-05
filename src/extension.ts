@@ -42,6 +42,63 @@ export function activate(context: vscode.ExtensionContext) {
         })
     );
 
+    context.subscriptions.push(
+        vscode.commands.registerCommand('extension.createPartial', async () => {
+            const editor = vscode.window.activeTextEditor;
+            if (!editor) {
+                vscode.window.showErrorMessage("No active editor found!");
+                return;
+            }
+
+            const selection = editor.selection;
+            const selectedText = editor.document.getText(selection);
+
+            if (!selectedText || selection.isEmpty) {
+                vscode.window.showErrorMessage("Please select some code to convert to a partial.");
+                return;
+            }
+
+            const partialName = await vscode.window.showInputBox({
+                prompt: "Enter a name for the new partial",
+                placeHolder: "e.g., _header",
+            });
+
+            if (!partialName) {
+                vscode.window.showErrorMessage("Partial name cannot be empty.");
+                return;
+            }
+
+            const workspaceFolders = vscode.workspace.workspaceFolders;
+            if (!workspaceFolders) {
+                vscode.window.showErrorMessage("No workspace folder found.");
+                return;
+            }
+
+            const workspaceRoot = workspaceFolders[0].uri.fsPath;
+            const partialsFolder = path.join(workspaceRoot, 'src', 'partials');
+
+            if (!fs.existsSync(partialsFolder)) {
+                fs.mkdirSync(partialsFolder, { recursive: true });
+            }
+
+            const newFilePath = path.join(partialsFolder, `${partialName}.html`);
+
+            if (fs.existsSync(newFilePath)) {
+                vscode.window.showErrorMessage(`A partial with the name "${partialName}" already exists.`);
+                return;
+            }
+
+            fs.writeFileSync(newFilePath, selectedText);
+
+            const partialReference = `{{> ${partialName} }}`;
+            editor.edit(editBuilder => {
+                editBuilder.replace(selection, partialReference);
+            });
+
+            vscode.window.showInformationMessage(`Partial "${partialName}.html" created successfully.`);
+        })
+    );
+
     const provider = new PartialSymbolProvider();
     context.subscriptions.push(vscode.languages.registerDefinitionProvider('html', provider));
     context.subscriptions.push(vscode.commands.registerCommand('extension.handlebarsWrapComment', handlebarsWrapComment));

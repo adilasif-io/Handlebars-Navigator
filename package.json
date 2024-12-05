@@ -1,7 +1,7 @@
 {
   "name": "handlebars-navigator",
   "displayName": "Handlebars Navigator",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Handlebars Navigator for VS Code",
   "icon": "images/handlebars-navigator-logo.png",
   "main": "out/extension.js",
@@ -34,6 +34,10 @@
       {
         "command": "extension.openLinkedPartial",
         "title": "Open Linked Partial"
+      },
+      {
+        "command": "extension.createPartial",
+        "title": "Create Partial from Selection"
       }
     ],
     "languages": [
@@ -45,10 +49,17 @@
         "configuration": "./language-configuration.json"
       }
     ],
-    "keybindings": {
-      "key": "ctrl+shift+/",
-      "command": "extension.handlebarsWrapComment",
-      "when": "editorTextFocus"
-    }
+    "keybindings": [
+      {
+        "key": "ctrl+shift+/",
+        "command": "extension.handlebarsWrapComment",
+        "when": "editorTextFocus"
+      },
+      {
+        "key": "ctrl+alt+p",
+        "command": "extension.createPartial",
+        "when": "editorTextFocus"
+      }
+    ]
   }
 }

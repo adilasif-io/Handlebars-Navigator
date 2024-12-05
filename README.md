@@ -32,6 +32,18 @@
 1. Select the lines that you would like commented
 2. Press CTRL + SHIFT + /
 
+### Create a Partial from Selected Code
+
+1. Select the code you want to convert into a partial.  
+2. Press the shortcut (or use the command palette) to run the `Create Partial` command.  
+3. Enter a name for the partial in the input box.  
+4. The selected code will:  
+   - Be moved to a new file in the `src/partials` folder.  
+   - The file will be saved with the name you provided and a `.html` extension.  
+   - A reference to the new partial (e.g., `{{> partial-name }}`) will replace the selected code in the current file.  
+
+   **Note:** If the `src/partials` folder does not exist, it will be created automatically.  
+
 ## Running Locally to Debug and Test
 
 To test the extension locally in a development environment, follow these steps:
