@@ -35,7 +35,7 @@
 ### Create a Partial from Selected Code
 
 1. Select the code you want to convert into a partial.  
-2. Press the shortcut (or use the command palette) to run the `Create Partial` command.  
+2. Press the shortcut `Ctrl + Alt + P` (or use the command palette) to run the `Create Partial` command.  
 3. Enter a name for the partial in the input box.  
 4. The selected code will:  
    - Be moved to a new file in the `src/partials` folder.  
