@@ -8,6 +8,8 @@
 
 - **Handlebars Highlighting:** Tailored support for Handlebars syntax, highlighting the handlebar mustaches and the partial names.
 
+- **Create a Partial:** Quickly create a partial out of selected code.
+
 ![How to use.](https://raw.githubusercontent.com/adilasif-io/Handlebars-Navigator/main/images/HN-working.gif)
 
 ## Installation
